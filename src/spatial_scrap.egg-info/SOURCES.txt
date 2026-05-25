@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/spatial_scrap/__init__.py
+src/spatial_scrap/blender_adapter.py
+src/spatial_scrap/cli.py
+src/spatial_scrap/depth_pipeline.py
+src/spatial_scrap/processor.py
+src/spatial_scrap.egg-info/PKG-INFO
+src/spatial_scrap.egg-info/SOURCES.txt
+src/spatial_scrap.egg-info/dependency_links.txt
+src/spatial_scrap.egg-info/entry_points.txt
+src/spatial_scrap.egg-info/requires.txt
+src/spatial_scrap.egg-info/top_level.txt
+tests/test_depth_pipeline.py

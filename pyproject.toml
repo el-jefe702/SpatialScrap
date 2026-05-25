@@ -1,0 +1,20 @@
+[project]
+name = "spatial_scrap"
+version = "0.1.0"
+description = "Local CNC toolpath and depth-map decimation, relief baking, and GLB export pipeline."
+readme = "README.md"
+authors = [
+  {name = "Jeff"}
+]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy",
+  "trimesh",
+  "pymeshlab",
+  "Pillow",
+  "imageio",
+  "pygltflib"
+]
+
+[project.scripts]
+spatial-scrap = "spatial_scrap.cli:main"

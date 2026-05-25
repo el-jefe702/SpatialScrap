@@ -1,0 +1,70 @@
+Metadata-Version: 2.4
+Name: spatial_scrap
+Version: 0.1.0
+Summary: Local CNC toolpath and depth-map decimation, relief baking, and GLB export pipeline.
+Author: Jeff
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: trimesh
+Requires-Dist: pymeshlab
+Requires-Dist: Pillow
+Requires-Dist: imageio
+Requires-Dist: pygltflib
+
+# SpacialScrap
+
+A local Python pipeline for taking dense CNC toolpaths or 16-bit depth maps, running mesh decimation, baking relief shadows, and exporting a low-latency `.glb` suitable for spatial computing.
+
+## Features
+
+- Accepts dense meshes and 16-bit depth-map inputs
+- Automatic mesh decimation with target triangle or reduction ratio control
+- Relief shadow baking with Blender adapter support
+- Clean GLB export for fast runtime performance
+
+## Installation
+
+```bash
+python -m pip install -e .
+```
+
+## Usage
+
+```bash
+spatial-scrap input.obj output.glb --target-triangles 20000 --bake --blender-bake-size 2048 --blender-bake-samples 64
+```
+
+Blender API is the preferred pipeline for this project. Use `--no-blender` only when Blender is unavailable.
+
+For a depth map input:
+
+```bash
+spatial-scrap depth.exr output.glb --depth-scale 0.15 --depth-downsample 2 --depth-smooth-passes 1 --reduction-ratio 0.65
+```
+
+You can also control the spatial sampling with `--depth-pixel-size` (distance between samples in XY units).
+
+Generate a sample depth map with:
+
+```bash
+python examples/generate_sample_depth.py
+```
+
+Then run:
+
+```bash
+spatial-scrap examples/sample_depth.png output.glb --depth-scale 0.15 --depth-downsample 2 --depth-smooth-passes 1
+```
+
+Run the unit test with:
+
+```bash
+python -m unittest discover tests
+```
+
+## Notes
+
+- Blender integration is preferred and enabled by default when available. Use `--no-blender` only when Blender is unavailable.
+- The package will fallback to a lightweight CPU-based relief approximation if Blender is unavailable.
+

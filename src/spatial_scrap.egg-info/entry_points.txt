@@ -1,0 +1,2 @@
+[console_scripts]
+spatial-scrap = spatial_scrap.cli:main
