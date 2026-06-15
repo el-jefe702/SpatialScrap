@@ -1,0 +1,1 @@
+A local Python CLI tool and library for taking dense CNC toolpaths and other high-poly 3D meshes to decimate and bake relief shadows into a lightweight .glb optimized for spatial computing.
