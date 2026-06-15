@@ -1,6 +1,6 @@
 # SpatialScrap
 
-A local Python pipeline for taking dense CNC toolpaths or 16-bit depth maps, running mesh decimation, baking relief shadows, and exporting a low-latency `.glb` suitable for spatial computing.
+A local Python CLI tool and library for taking dense CNC toolpaths and other high-poly 3D meshes to decimate and bake relief shadows into a lightweight .glb optimized for spatial computing.
 
 ## Features
 
